@@ -72,14 +72,20 @@
   border-color: var(--accent);
 }
 
-.stripItem[data-published="true"] .stripLink:hover .stripDot {
-  transform: scale(1.5);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 16%, transparent);
-}
+@media (hover: hover) and (pointer: fine) {
+  .stripItem[data-published="true"] .stripLink:hover .stripDot {
+    transform: scale(1.5);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 16%, transparent);
+  }
 
-.stripItem[data-published="false"] .stripLink:hover .stripDot {
-  border-color: var(--text-muted);
-  transform: scale(1.28);
+  .stripItem[data-published="false"] .stripLink:hover .stripDot {
+    border-color: var(--text-muted);
+    transform: scale(1.28);
+  }
+
+  .stripLink:hover .stripLabel {
+    color: var(--text);
+  }
 }
 
 .stripLabel {
@@ -94,8 +100,8 @@
   color: var(--text-muted);
 }
 
-.stripLink:hover .stripLabel {
-  color: var(--text);
+.stripLegend {
+  display: none;
 }
 
 .tooltip {
@@ -146,13 +152,153 @@
   transform: translate(-50%, 0);
 }
 
-@media (max-width: 640px) {
+/* A centred tooltip on the first or last few dots hangs past the edge of the
+   container — and past the viewport once the container is full-bleed. Anchor
+   those to the dot instead of centring them. */
+.stripItem:nth-child(-n + 3) .tooltip {
+  left: 0;
+  transform: translate(0, 6px);
+}
+
+.stripItem:nth-child(-n + 3) .stripLink:hover .tooltip,
+.stripItem:nth-child(-n + 3) .stripLink:focus-visible .tooltip {
+  transform: translate(0, 0);
+}
+
+.stripItem:nth-last-child(-n + 3) .tooltip {
+  left: auto;
+  right: 0;
+  transform: translate(0, 6px);
+}
+
+.stripItem:nth-last-child(-n + 3) .stripLink:hover .tooltip,
+.stripItem:nth-last-child(-n + 3) .stripLink:focus-visible .tooltip {
+  transform: translate(0, 0);
+}
+
+/* Tablet: 16 items across a 720px container leaves 43px each once the 2px gap
+   is taken out. Drop the gap so every dot clears a 44px target. */
+@media (max-width: 900px) {
+  .stripList {
+    gap: 0;
+  }
+}
+
+/* ── Mobile: the rail becomes a tappable week grid ─────────────────────────
+   Sixteen dots across a phone gives ~17px targets, and the rail only clears a
+   44px target once the container reaches ~750px. So below the 768px tablet
+   breakpoint the same markup is relaid out as a grid of 44px+ cells.
+   Tablets and desktop keep the rail. */
+
+@media (max-width: 767px) {
+  .strip {
+    padding-block: 4px 0;
+  }
+
+  .stripRail {
+    display: none;
+  }
+
   .tooltip {
     display: none;
   }
 
+  .stripList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+    gap: 8px;
+  }
+
+  .stripItem {
+    flex: none;
+  }
+
+  .stripLink {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+    min-height: 46px;
+    padding: 0;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--bg-elev);
+    transition: transform 220ms var(--ease-out), background-color 220ms var(--ease),
+      border-color 220ms var(--ease);
+  }
+
+  /* The filled cell now carries the published state, so the dot is redundant. */
+  .stripDot {
+    display: none;
+  }
+
   .stripLabel {
-    font-size: 9.5px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .stripItem[data-published="true"] .stripLink {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .stripItem[data-published="true"] .stripLabel {
+    color: #fff;
+  }
+
+  .stripItem[data-published="true"] .stripLink:active {
+    transform: scale(0.95);
+  }
+
+  .stripItem[data-published="false"] .stripLink {
+    background: transparent;
+    border-style: dashed;
+  }
+
+  /* Legend, since there are no tooltips on touch. */
+  .stripLegend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 16px;
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .stripLegend > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .legendSwatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    border: 1px solid var(--rule-strong);
+    background: transparent;
+  }
+
+  .stripLegend > span[data-published="true"] .legendSwatch {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .legendHint {
+    color: var(--text-muted);
+  }
+}
+
+/* Very small phones: pin to five columns so each cell still clears 44px
+   rather than letting auto-fit squeeze in a sixth. */
+@media (max-width: 400px) {
+  .stripList {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
   }
 }
 
@@ -184,9 +330,15 @@
   transition: background-color 300ms var(--ease), padding-left 340ms var(--ease-out);
 }
 
-.rowInnerWrap[data-published="true"] .rowLink:hover {
+@media (hover: hover) and (pointer: fine) {
+  .rowInnerWrap[data-published="true"] .rowLink:hover {
+    background: var(--bg-sunken);
+    padding-left: 10px;
+  }
+}
+
+.rowInnerWrap[data-published="true"] .rowLink:active {
   background: var(--bg-sunken);
-  padding-left: 10px;
 }
 
 .marker {
@@ -244,13 +396,20 @@
   transform: rotate(45deg);
 }
 
-.rowInnerWrap[data-published="true"] .rowLink:hover .markerDot {
-  transform: scale(1.35);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 15%, transparent);
-}
+@media (hover: hover) and (pointer: fine) {
+  .rowInnerWrap[data-published="true"] .rowLink:hover .markerDot {
+    transform: scale(1.35);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 15%, transparent);
+  }
 
-.rowInnerWrap[data-published="true"][data-final="true"] .rowLink:hover .markerDot {
-  transform: rotate(45deg) scale(1.35);
+  .rowInnerWrap[data-published="true"][data-final="true"] .rowLink:hover .markerDot {
+    transform: rotate(45deg) scale(1.35);
+  }
+
+  .rowInnerWrap[data-published="true"] .rowLink:hover .rowStatus svg {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .rowIndex {
@@ -321,11 +480,6 @@
   transition: opacity 260ms var(--ease), transform 320ms var(--ease-out);
 }
 
-.rowInnerWrap[data-published="true"] .rowLink:hover .rowStatus svg {
-  opacity: 1;
-  transform: none;
-}
-
 @media (max-width: 760px) {
   .rowLink {
     grid-template-columns: 34px minmax(0, 1fr);
@@ -356,5 +510,15 @@
 
   .rowTitle {
     font-size: 19px;
+  }
+
+  /* No hover on touch — reveal the affordance permanently. */
+  .rowInnerWrap[data-published="true"] .rowStatus svg {
+    opacity: 1;
+    transform: none;
+  }
+
+  .rowLink {
+    min-height: 56px;
   }
 }

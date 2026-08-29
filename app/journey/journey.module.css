@@ -16,9 +16,11 @@
   transition: border-color 260ms var(--ease), transform 340ms var(--ease-out);
 }
 
-.stat:hover {
-  border-color: var(--rule-strong);
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .stat:hover {
+    border-color: var(--rule-strong);
+    transform: translateY(-2px);
+  }
 }
 
 .statValue {
@@ -50,8 +52,17 @@
 }
 
 @media (max-width: 600px) {
+  .statsRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .stat {
+    padding: 18px 16px;
+  }
+
   .statValue {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .timelineSection {

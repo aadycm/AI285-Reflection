@@ -69,6 +69,21 @@ export default function Timeline({
             );
           })}
         </ol>
+
+        {/* Hover tooltips are unavailable on touch, so the mobile grid gets a
+            visible legend instead. Hidden from desktop, where the rail and its
+            tooltips already carry this. */}
+        <p className={styles.stripLegend}>
+          <span data-published="true">
+            <span className={styles.legendSwatch} aria-hidden="true" />
+            Published
+          </span>
+          <span data-published="false">
+            <span className={styles.legendSwatch} aria-hidden="true" />
+            Upcoming
+          </span>
+          <span className={styles.legendHint}>Tap a week to read it</span>
+        </p>
       </div>
     );
   }

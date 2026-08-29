@@ -25,9 +25,21 @@
   pointer-events: auto;
 }
 
-.button:hover {
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .button:hover svg {
+    transform: translateY(-2px);
+  }
+}
+
+.button:active {
   color: var(--accent);
   border-color: var(--accent);
+  transform: scale(0.94);
 }
 
 .button svg {
@@ -41,10 +53,6 @@
   transition: transform 300ms var(--ease-out);
 }
 
-.button:hover svg {
-  transform: translateY(-2px);
-}
-
 .label {
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -55,8 +63,17 @@
 @media (max-width: 600px) {
   .button {
     right: 16px;
-    bottom: 16px;
-    padding: 10px 12px;
+    /* Clear of the iOS home indicator / browser chrome. */
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    padding: 0;
+    width: 46px;
+    height: 46px;
+    justify-content: center;
+  }
+
+  .button svg {
+    width: 16px;
+    height: 16px;
   }
 
   .label {

@@ -8,9 +8,23 @@
   transition: background-color 200ms var(--ease), color 200ms var(--ease);
 }
 
-.toggle:hover {
+@media (hover: hover) and (pointer: fine) {
+  .toggle:hover {
+    background: var(--bg-sunken);
+    color: var(--text);
+  }
+}
+
+.toggle:active {
   background: var(--bg-sunken);
   color: var(--text);
+}
+
+@media (max-width: 880px), (pointer: coarse) {
+  .toggle {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 .icon {

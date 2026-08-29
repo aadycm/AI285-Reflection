@@ -28,15 +28,29 @@
   transition: transform 520ms var(--ease-out);
 }
 
-.card[data-published="true"]:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--rule-strong);
+@media (hover: hover) and (pointer: fine) {
+  .card[data-published="true"]:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--rule-strong);
+  }
+
+  .card[data-published="true"]:hover::before {
+    transform: scaleX(1);
+  }
+
+  .card:hover .cta svg {
+    transform: translateX(4px);
+  }
 }
 
-.card[data-published="true"]:hover::before,
 .card[data-published="true"]:focus-visible::before {
   transform: scaleX(1);
+}
+
+.card[data-published="true"]:active {
+  border-color: var(--rule-strong);
+  background: var(--bg-sunken);
 }
 
 .card[data-published="false"] {
@@ -169,10 +183,6 @@
   transition: transform 340ms var(--ease-out);
 }
 
-.card:hover .cta svg {
-  transform: translateX(4px);
-}
-
 @media (max-width: 600px) {
   .card,
   .card[data-featured="true"] {
@@ -185,5 +195,31 @@
 
   .card[data-featured="true"] .excerpt {
     font-size: 17.5px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .cta {
+    min-height: 44px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .card,
+  .card[data-featured="true"] {
+    padding: 20px 17px 22px;
+  }
+
+  .card[data-featured="true"] .title {
+    font-size: 25px;
+  }
+
+  /* Week label and status side by side gets tight at 320px. */
+  .top {
+    flex-wrap: wrap;
+    gap: 6px 12px;
   }
 }

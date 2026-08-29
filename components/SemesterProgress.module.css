@@ -138,17 +138,62 @@
 @media (max-width: 700px) {
   .wrap,
   .wrap[data-variant="compact"] {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
+    /* Dial beside the numbers rather than stacked: it keeps the card compact
+       on a phone and reads the same as on desktop. */
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
     padding: 26px 22px;
   }
 
+  .wrap .dial,
+  .wrap[data-variant="compact"] .dial {
+    width: 96px;
+    height: 96px;
+  }
+
+  .wrap .percent {
+    font-size: 27px;
+  }
+
   .stats {
-    width: 100%;
+    flex: 1 1 180px;
   }
 
   .headline {
-    font-size: 22px;
+    font-size: 21px;
+  }
+
+  .sub {
+    font-size: 14.5px;
+  }
+
+  /* The bar belongs under the whole card once things wrap. */
+  .barTrack {
+    flex-basis: 100%;
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 400px) {
+  .wrap,
+  .wrap[data-variant="compact"] {
+    gap: 18px;
+    padding: 22px 18px;
+  }
+
+  .wrap .dial,
+  .wrap[data-variant="compact"] .dial {
+    width: 82px;
+    height: 82px;
+  }
+
+  .wrap .percent {
+    font-size: 23px;
+  }
+
+  .headline {
+    font-size: 19px;
   }
 }

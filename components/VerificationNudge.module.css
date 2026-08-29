@@ -114,10 +114,46 @@
 
 @media (max-width: 600px) {
   .nudge {
-    padding: 22px 20px 24px;
+    padding: 22px 18px 24px;
   }
 
   .statement {
     font-size: 17.5px;
+  }
+
+  /* The tool name can be long; give it its own line rather than crushing the
+     label it sits beside. */
+  .label {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tool {
+    margin-left: 0;
+    flex-basis: 100%;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  /* The chips read better as their own line above the sentence on a narrow
+     column, instead of as an inline run-in. */
+  .chipStruck,
+  .chipKept {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 7px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 400px) {
+  .nudge {
+    padding: 20px 16px 22px;
+  }
+
+  .statement {
+    font-size: 17px;
   }
 }

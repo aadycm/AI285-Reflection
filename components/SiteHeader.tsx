@@ -107,12 +107,12 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      <div
-        id="mobile-nav"
-        className={styles.mobilePanel}
-        data-open={open}
-        hidden={!open}
-      >
+      {/* Collapsed with max-height + visibility rather than the `hidden`
+          attribute: the stylesheet's `display: block` beats the attribute's UA
+          `display: none`, so `hidden` alone left the closed panel occupying
+          layout. `visibility: hidden` keeps it out of the tab order and the
+          accessibility tree while still allowing the open transition to run. */}
+      <div id="mobile-nav" className={styles.mobilePanel} data-open={open}>
         <nav aria-label="Mobile">
           {links.map((link, i) => (
             <Link

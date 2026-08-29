@@ -20,8 +20,12 @@
   transition: color 200ms var(--ease);
 }
 
-.breadcrumb a:hover {
-  color: var(--accent);
+@media (max-width: 880px), (pointer: coarse) {
+  .breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
 }
 
 .weekMark {
@@ -194,9 +198,23 @@
   transition: border-color 260ms var(--ease), transform 340ms var(--ease-out);
 }
 
-.finalLink:hover {
+@media (hover: hover) and (pointer: fine) {
+  .finalLink:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .finalLink:hover svg {
+    transform: translateX(4px);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent);
+  }
+}
+
+.finalLink:active {
   border-color: var(--accent);
-  transform: translateY(-2px);
 }
 
 .finalTitle {
@@ -217,17 +235,34 @@
   transition: transform 340ms var(--ease-out);
 }
 
-.finalLink:hover svg {
-  transform: translateX(4px);
-}
-
 @media (max-width: 640px) {
   .article {
     padding-block: 36px 0;
   }
 
+  /* The week title is author-supplied and can be long, so it gets the most
+     aggressive rescale on phones. */
+  .title {
+    font-size: clamp(28px, 8.4vw, 40px);
+    letter-spacing: -0.03em;
+    max-width: none;
+  }
+
   .lede {
     font-size: 18.5px;
+  }
+
+  .breadcrumb {
+    align-items: center;
+  }
+
+  .weekMark {
+    margin-top: 18px;
+    gap: 10px;
+  }
+
+  .divider {
+    max-width: 40px;
   }
 
   .section {
@@ -250,5 +285,19 @@
   .finalTitle {
     flex-basis: 100%;
     font-size: 18px;
+  }
+
+  .finalLink {
+    min-height: 64px;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: clamp(26px, 8.6vw, 34px);
+  }
+
+  .meta {
+    gap: 8px 12px;
   }
 }

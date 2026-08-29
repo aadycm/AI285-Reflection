@@ -167,8 +167,15 @@
     background-color 240ms var(--ease);
 }
 
-.footerLink:hover {
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .footerLink:hover {
+    transform: translateY(-2px);
+    border-color: var(--rule-strong);
+    background: var(--bg-sunken);
+  }
+}
+
+.footerLink:active {
   border-color: var(--rule-strong);
   background: var(--bg-sunken);
 }
@@ -176,6 +183,12 @@
 @media (max-width: 640px) {
   .article {
     padding-block: 36px 0;
+  }
+
+  .title {
+    font-size: clamp(28px, 8.4vw, 40px);
+    letter-spacing: -0.03em;
+    max-width: none;
   }
 
   .lede {
@@ -201,5 +214,24 @@
   .footerNav {
     grid-template-columns: 1fr;
     margin-top: 56px;
+  }
+
+  .footerLink {
+    min-height: 64px;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: clamp(26px, 8.6vw, 34px);
+  }
+
+  /* Reclaim the indent the numeral costs on a narrow column. */
+  .sectionHead {
+    gap: 10px;
+  }
+
+  .pending {
+    padding-left: 28px;
   }
 }

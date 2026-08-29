@@ -65,9 +65,26 @@
   color: var(--text-inverse);
 }
 
-.primaryButton:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+  .primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .primaryButton:hover svg {
+    transform: translateX(4px);
+  }
+
+  .secondaryButton:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+    transform: translateY(-2px);
+  }
+}
+
+.primaryButton:active,
+.secondaryButton:active {
+  transform: scale(0.98);
 }
 
 .primaryButton svg {
@@ -81,19 +98,9 @@
   transition: transform 340ms var(--ease-out);
 }
 
-.primaryButton:hover svg {
-  transform: translateX(4px);
-}
-
 .secondaryButton {
   border: 1px solid var(--rule-strong);
   color: var(--text-muted);
-}
-
-.secondaryButton:hover {
-  color: var(--text);
-  border-color: var(--text-muted);
-  transform: translateY(-2px);
 }
 
 .setupHint {
@@ -143,7 +150,17 @@
   transition: color 200ms var(--ease);
 }
 
-.moreLink:hover {
+@media (hover: hover) and (pointer: fine) {
+  .moreLink:hover {
+    color: var(--accent);
+  }
+
+  .moreLink:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.moreLink:active {
   color: var(--accent);
 }
 
@@ -158,8 +175,12 @@
   transition: transform 320ms var(--ease-out);
 }
 
-.moreLink:hover svg {
-  transform: translateX(3px);
+/* Comfortable targets rather than 22px text links: narrow viewports or touch. */
+@media (max-width: 880px), (pointer: coarse) {
+  .moreLink {
+    min-height: 44px;
+    align-items: center;
+  }
 }
 
 .emptyState {
@@ -193,8 +214,15 @@
     background-color 240ms var(--ease);
 }
 
-.quickLink[data-published="true"]:hover {
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .quickLink[data-published="true"]:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+}
+
+.quickLink[data-published="true"]:active {
   border-color: var(--accent);
   background: var(--accent-soft);
 }
@@ -258,6 +286,13 @@
     padding-block: 56px 48px;
   }
 
+  /* Below 600px the desktop clamp bottoms out at 46px, which is wider than a
+     small phone. Rescale within the phone range instead of letting words break. */
+  .heroTitle {
+    font-size: clamp(30px, 8.6vw, 46px);
+    letter-spacing: -0.03em;
+  }
+
   .heroIntro {
     font-size: 18px;
   }
@@ -276,6 +311,33 @@
   }
 
   .quickGrid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+  }
+
+  .quickLink {
+    min-height: 62px;
+    justify-content: center;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 48px;
+    justify-content: center;
+    flex: 1 1 auto;
+  }
+
+  .heroActions {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .primaryButton,
+  .secondaryButton {
+    flex-basis: 100%;
+  }
+
+  .courseCard {
+    grid-template-columns: 1fr;
   }
 }

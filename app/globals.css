@@ -143,6 +143,9 @@ body {
   text-rendering: optimizeLegibility;
   min-height: 100dvh;
   overflow-wrap: break-word;
+  /* Suppress the grey flash on tap; every interactive element defines its own
+     :active state instead. */
+  -webkit-tap-highlight-color: transparent;
   transition: background-color 400ms var(--ease), color 400ms var(--ease);
 }
 
@@ -214,6 +217,13 @@ p {
   }
 }
 
+/* Small phones (iPhone SE and similar) need the extra 8px of content width. */
+@media (max-width: 400px) {
+  .container {
+    padding-inline: 16px;
+  }
+}
+
 .skip-link {
   position: absolute;
   left: 12px;
@@ -244,6 +254,20 @@ p {
 .rule {
   border: 0;
   border-top: 1px solid var(--rule);
+}
+
+/* ═══ Touch targets ══════════════════════════════════════════════════════
+
+   Below the tablet breakpoint every control is given a minimum 44×44px hit
+   area. Where the visual element is deliberately smaller than that, the target
+   is grown with padding or a ::after overlay rather than by scaling the design.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 880px) {
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 /* ═══ Scroll reveal ═══════════════════════════════════════════════════════ */

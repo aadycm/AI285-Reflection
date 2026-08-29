@@ -47,9 +47,15 @@
   transition: color 200ms var(--ease), transform 260ms var(--ease-out);
 }
 
-.links a:hover {
+@media (hover: hover) and (pointer: fine) {
+  .links a:hover {
+    color: var(--accent);
+    transform: translateX(3px);
+  }
+}
+
+.links a:active {
   color: var(--accent);
-  transform: translateX(3px);
 }
 
 .base {
@@ -78,5 +84,40 @@
     grid-template-columns: 1fr;
     gap: 40px;
     padding-block: 48px 36px;
+  }
+
+  .links div {
+    gap: 2px;
+  }
+}
+
+/* Touch targets: text links at 25px tall are hard to hit, so grow the row
+   rather than the type. Fires on narrow viewports or any touch device. */
+@media (max-width: 880px), (pointer: coarse) {
+  .links div {
+    gap: 2px;
+  }
+
+  .links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  /* Two columns of link text start wrapping awkwardly below ~420px. */
+  .links {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .wordmark {
+    font-size: 23px;
+  }
+
+  .base {
+    gap: 6px;
   }
 }

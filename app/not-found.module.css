@@ -48,12 +48,38 @@
   color: var(--text-muted);
 }
 
-.primary:hover,
-.secondary:hover {
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover,
+  .secondary:hover {
+    transform: translateY(-2px);
+  }
+
+  .secondary:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
 }
 
-.secondary:hover {
-  color: var(--text);
-  border-color: var(--text-muted);
+.primary:active,
+.secondary:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    padding-block: 72px;
+  }
+
+  .title {
+    font-size: clamp(28px, 8.2vw, 38px);
+  }
+
+  .primary,
+  .secondary {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+  }
 }

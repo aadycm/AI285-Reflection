@@ -88,7 +88,17 @@
   transition: color 200ms var(--ease);
 }
 
-.sideLink:hover {
+@media (hover: hover) and (pointer: fine) {
+  .sideLink:hover {
+    color: var(--accent);
+  }
+
+  .sideLink:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.sideLink:active {
   color: var(--accent);
 }
 
@@ -103,8 +113,11 @@
   transition: transform 320ms var(--ease-out);
 }
 
-.sideLink:hover svg {
-  transform: translateX(3px);
+@media (max-width: 880px), (pointer: coarse) {
+  .sideLink {
+    min-height: 44px;
+    align-items: center;
+  }
 }
 
 @media (max-width: 900px) {
@@ -121,5 +134,18 @@
 @media (max-width: 600px) {
   .heading {
     font-size: 24px;
+  }
+
+  .section + .section {
+    margin-top: 44px;
+  }
+
+  .card {
+    padding: 22px 18px;
+    gap: 18px;
+  }
+
+  .plain {
+    font-size: 16px;
   }
 }

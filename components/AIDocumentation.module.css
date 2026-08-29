@@ -33,7 +33,15 @@
     background-color 200ms var(--ease);
 }
 
-.toggle:hover {
+@media (hover: hover) and (pointer: fine) {
+  .toggle:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+    background: var(--bg-sunken);
+  }
+}
+
+.toggle:active {
   color: var(--text);
   border-color: var(--text-muted);
   background: var(--bg-sunken);
@@ -52,6 +60,12 @@
 
 .toggle svg[data-open="true"] {
   transform: rotate(180deg);
+}
+
+@media (max-width: 880px), (pointer: coarse) {
+  .toggle {
+    min-height: 48px;
+  }
 }
 
 .details {
@@ -94,5 +108,26 @@
 
   .title {
     font-size: 23px;
+  }
+
+  /* Stack the heading and the disclosure control so neither is squeezed, and
+     make the control a full-width, finger-sized row. */
+  .head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .toggle {
+    justify-content: center;
+  }
+
+  .fields {
+    padding-top: 22px;
+    gap: 20px;
+  }
+
+  .field dd {
+    font-size: 17px;
   }
 }

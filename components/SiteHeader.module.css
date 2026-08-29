@@ -29,6 +29,8 @@
   gap: 12px;
   margin-right: auto;
   min-width: 0;
+  /* Vertical padding only: grows the tap area to 44px without moving anything. */
+  padding-block: 6px;
 }
 
 .mark {
@@ -47,8 +49,10 @@
   transition: transform 400ms var(--ease-out);
 }
 
-.brand:hover .mark {
-  transform: rotate(-4deg) scale(1.06);
+@media (hover: hover) and (pointer: fine) {
+  .brand:hover .mark {
+    transform: rotate(-4deg) scale(1.06);
+  }
 }
 
 .brandText {
@@ -106,12 +110,14 @@
   transition: transform 320ms var(--ease-out);
 }
 
-.link:hover {
-  color: var(--text);
-}
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--text);
+  }
 
-.link:hover::after {
-  transform: scaleX(1);
+  .link:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .link[data-active="true"] {
@@ -173,7 +179,13 @@
   transition: background-color 200ms var(--ease);
 }
 
-.menuButton:hover {
+@media (hover: hover) and (pointer: fine) {
+  .menuButton:hover {
+    background: var(--bg-sunken);
+  }
+}
+
+.menuButton:active {
   background: var(--bg-sunken);
 }
 
@@ -216,9 +228,8 @@
 
 .mobilePanel {
   display: none;
-  border-top: 1px solid var(--rule);
   background: var(--bg);
-  padding: 12px 24px 28px;
+  padding-inline: 24px;
 }
 
 .mobilePanel nav {
@@ -230,7 +241,8 @@
   display: flex;
   align-items: baseline;
   gap: 14px;
-  padding: 15px 4px;
+  min-height: 56px;
+  padding: 16px 4px;
   font-family: var(--font-serif);
   font-size: 24px;
   letter-spacing: -0.02em;
@@ -246,6 +258,10 @@
 }
 
 .mobileLink[data-active="true"] {
+  color: var(--accent);
+}
+
+.mobileLink:active {
   color: var(--accent);
 }
 
@@ -270,13 +286,85 @@
 
   .menuButton {
     display: grid;
-  }
-
-  .mobilePanel {
-    display: block;
+    width: 44px;
+    height: 44px;
   }
 
   .progress {
     display: none;
+  }
+
+  /* Closed: collapsed to zero height and removed from the tab order, but still
+     rendered so the staggered link reveal has something to transition from. */
+  .mobilePanel {
+    display: block;
+    max-height: 0;
+    padding-block: 0;
+    overflow: hidden;
+    visibility: hidden;
+    border-top: 0 solid var(--rule);
+    transition: max-height 360ms var(--ease-out), padding-block 360ms var(--ease-out),
+      visibility 0s linear 360ms;
+  }
+
+  /* Open: capped to the space left under the sticky header, scrolling
+     internally on short or landscape phones. */
+  .mobilePanel[data-open="true"] {
+    max-height: calc(100dvh - var(--header-h));
+    padding-block: 12px 28px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    visibility: visible;
+    border-top-width: 1px;
+    transition: max-height 420ms var(--ease-out), padding-block 420ms var(--ease-out),
+      visibility 0s linear 0s;
+  }
+}
+
+/* Wide touch screens (a tablet in landscape) keep the desktop nav, but its
+   links need a finger-sized hit area. */
+@media (pointer: coarse) {
+  .link {
+    padding-block: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobilePanel {
+    padding-inline: 20px;
+  }
+}
+
+/* Small phones: tighten the brand so the title is not truncated by the
+   now-larger controls. */
+@media (max-width: 400px) {
+  .inner {
+    gap: 8px;
+  }
+
+  .mark {
+    width: 30px;
+    height: 30px;
+    font-size: 8.5px;
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brandTitle {
+    font-size: 15.5px;
+  }
+
+  .tail {
+    gap: 2px;
+  }
+
+  .mobilePanel {
+    padding-inline: 16px;
+  }
+
+  .mobileLink {
+    font-size: 22px;
   }
 }

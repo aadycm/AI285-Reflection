@@ -66,8 +66,19 @@
   transition: color 200ms var(--ease);
 }
 
-.clear:hover {
-  color: var(--accent);
+@media (hover: hover) and (pointer: fine) {
+  .clear:hover {
+    color: var(--accent);
+  }
+
+  .filter:hover {
+    color: var(--text);
+  }
+}
+
+.clear:active,
+.filter:active {
+  color: var(--text);
 }
 
 .filters {
@@ -87,10 +98,6 @@
     box-shadow 260ms var(--ease);
 }
 
-.filter:hover {
-  color: var(--text);
-}
-
 .filter[data-active="true"] {
   background: var(--bg-elev);
   color: var(--text);
@@ -108,7 +115,9 @@
 .grid {
   margin-top: 22px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  /* min() keeps the track from exceeding the container on 320px phones, where a
+     hard 320px minimum would overflow. */
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
   gap: 20px;
 }
 
@@ -142,5 +151,39 @@
 
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Touch targets: narrow viewports or any touch device. */
+@media (max-width: 880px), (pointer: coarse) {
+  /* Zero vertical padding so the input itself fills the pill and the whole
+     control is tappable, not just its middle 28px. */
+  .searchBox {
+    padding-block: 0;
+  }
+
+  /* iOS zooms the page in when a focused input is under 16px. */
+  .searchBox input {
+    font-size: 16px;
+    align-self: stretch;
+    min-height: 48px;
+  }
+
+  .clear {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding-inline: 4px;
+  }
+
+  .filter {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 400px) {
+  .filter {
+    padding-inline: 8px;
+    font-size: 13px;
   }
 }
