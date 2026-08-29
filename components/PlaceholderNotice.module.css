@@ -1,0 +1,39 @@
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  max-width: var(--measure);
+  padding: 14px 18px;
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--bg-sunken);
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.notice strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.notice svg {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.notice[data-compact="true"] {
+  padding: 9px 13px;
+  font-size: 13px;
+  gap: 8px;
+}
+
+.notice[data-compact="true"] svg {
+  width: 15px;
+  height: 15px;
+}

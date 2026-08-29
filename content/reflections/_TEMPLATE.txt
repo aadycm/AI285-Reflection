@@ -1,0 +1,45 @@
+COPY–PASTE TEMPLATE FOR A WEEKLY REFLECTION
+===========================================
+Open content/reflections/week-NN.ts and fill it in like the example below.
+(This file is a .txt on purpose so it is never compiled into the site.)
+
+const weekN: Reflection = {
+  week: N,
+  title: "The Week I Stopped Trusting My Own Summary",
+  dateRange: "September 7 – September 11",
+  status: "published",     // "published" makes it live; "upcoming" keeps it greyed out
+  isPlaceholder: false,    // false = this is genuinely your writing
+  excerpt: "One or two sentences that appear on the week card and in the archive.",
+  tags: ["ethics", "group work"],
+
+  keyLearningMoments: [
+    "A paragraph. Plain strings render as paragraphs.",
+    { list: ["A bulleted point", "Another point"] },
+    { quote: "A line worth pulling out.", attribution: "Optional source" },
+  ],
+
+  personalConnections: [
+    "Another paragraph.",
+  ],
+
+  challengesAndGrowth: [
+    "Another paragraph.",
+  ],
+
+  ai: {
+    tool: "Claude (Opus 5)",
+    purpose: "What you asked it to do.",
+    howItHelped: "What is concretely better in this entry because of it.",
+    verification: {
+      aiOriginallySaid: "What the AI produced or claimed.",
+      iChangedItTo: "What you replaced it with.",
+      howIChecked: "Where you checked — notes, syllabus, reading, instructor.",
+    },
+  },
+};
+
+THREE BLOCK TYPES YOU CAN USE IN ANY SECTION
+--------------------------------------------
+  "Just a string"                              → paragraph
+  { list: ["one", "two"] }                     → bulleted list
+  { quote: "…", attribution: "…" }             → pull quote

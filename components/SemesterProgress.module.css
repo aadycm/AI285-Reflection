@@ -1,0 +1,154 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 34px 38px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elev);
+  box-shadow: var(--shadow-sm);
+}
+
+.dial {
+  position: relative;
+  flex-shrink: 0;
+  width: 132px;
+  height: 132px;
+}
+
+.dial svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.track,
+.arc {
+  fill: none;
+  stroke-width: 5;
+}
+
+.track {
+  stroke: var(--rule);
+}
+
+.arc {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1400ms var(--ease-out);
+}
+
+.readout {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.percent {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.percentSign {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-left: 1px;
+}
+
+.percentLabel {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.stats {
+  min-width: 0;
+}
+
+.headline {
+  margin-top: 10px;
+  font-family: var(--font-serif);
+  font-size: 25px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.sub {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 15px;
+  max-width: 46ch;
+}
+
+.barTrack {
+  margin-top: 22px;
+  height: 4px;
+  border-radius: 3px;
+  background: var(--rule);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--accent) 72%, var(--gold-line)) 100%
+  );
+  transition: width 1500ms var(--ease-out);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.wrap[data-variant="compact"] {
+  padding: 24px 26px;
+  gap: 26px;
+}
+
+.wrap[data-variant="compact"] .dial {
+  width: 96px;
+  height: 96px;
+}
+
+.wrap[data-variant="compact"] .percent {
+  font-size: 27px;
+}
+
+.wrap[data-variant="compact"] .headline {
+  font-size: 20px;
+}
+
+@media (max-width: 700px) {
+  .wrap,
+  .wrap[data-variant="compact"] {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 26px 22px;
+  }
+
+  .stats {
+    width: 100%;
+  }
+
+  .headline {
+    font-size: 22px;
+  }
+}

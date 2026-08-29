@@ -1,0 +1,64 @@
+.statsRow {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 24px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--bg-elev);
+  transition: border-color 260ms var(--ease), transform 340ms var(--ease-out);
+}
+
+.stat:hover {
+  border-color: var(--rule-strong);
+  transform: translateY(-2px);
+}
+
+.statValue {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.timelineSection {
+  margin-top: 88px;
+}
+
+.timelineHeading {
+  font-size: 30px;
+  letter-spacing: -0.028em;
+  margin-bottom: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (max-width: 600px) {
+  .statValue {
+    font-size: 30px;
+  }
+
+  .timelineSection {
+    margin-top: 64px;
+  }
+
+  .timelineHeading {
+    font-size: 26px;
+  }
+}

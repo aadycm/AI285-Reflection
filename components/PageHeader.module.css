@@ -1,0 +1,33 @@
+.header {
+  padding-block: 72px 44px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 48px;
+}
+
+.title {
+  margin-top: 16px;
+  font-size: clamp(38px, 6.2vw, 62px);
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  max-width: 18ch;
+}
+
+.lede {
+  margin-top: 22px;
+  max-width: 58ch;
+  font-family: var(--font-serif);
+  font-size: 21px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding-block: 48px 32px;
+    margin-bottom: 36px;
+  }
+
+  .lede {
+    font-size: 18.5px;
+  }
+}

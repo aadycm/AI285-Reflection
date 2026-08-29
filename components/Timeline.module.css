@@ -1,0 +1,360 @@
+/* ═══ Compact strip (home page) ═══════════════════════════════════════════ */
+
+.strip {
+  position: relative;
+  padding-block: 30px 8px;
+}
+
+.stripRail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 42px;
+  height: 1px;
+  background: var(--rule);
+}
+
+.stripFill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(var(--p));
+  animation: grow 1400ms var(--ease-out) both;
+  animation-delay: 240ms;
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.stripList {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+}
+
+.stripItem {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.stripLink {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 2px 6px;
+  width: 100%;
+}
+
+.stripDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--rule-strong);
+  transition: transform 300ms var(--ease-out), background-color 260ms var(--ease),
+    border-color 260ms var(--ease), box-shadow 300ms var(--ease);
+}
+
+.stripItem[data-published="true"] .stripDot {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.stripItem[data-published="true"] .stripLink:hover .stripDot {
+  transform: scale(1.5);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.stripItem[data-published="false"] .stripLink:hover .stripDot {
+  border-color: var(--text-muted);
+  transform: scale(1.28);
+}
+
+.stripLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  transition: color 220ms var(--ease);
+}
+
+.stripItem[data-published="true"] .stripLabel {
+  color: var(--text-muted);
+}
+
+.stripLink:hover .stripLabel {
+  color: var(--text);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translate(-50%, 6px);
+  width: max-content;
+  max-width: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 13px;
+  border-radius: var(--radius);
+  background: var(--bg-inverse);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  transition: opacity 220ms var(--ease), transform 300ms var(--ease-out);
+}
+
+.tooltip strong {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.62;
+}
+
+.tooltip > span:not(.tooltipDate) {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.tooltipDate {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  opacity: 0.55;
+}
+
+.stripLink:hover .tooltip,
+.stripLink:focus-visible .tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 640px) {
+  .tooltip {
+    display: none;
+  }
+
+  .stripLabel {
+    font-size: 9.5px;
+  }
+}
+
+/* ═══ Detailed vertical timeline (journey page) ═══════════════════════════ */
+
+.detailed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.row {
+  position: relative;
+}
+
+.rowInnerWrap {
+  display: block;
+}
+
+.rowLink {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px 90px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 18px;
+  padding: 22px 20px 22px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: background-color 300ms var(--ease), padding-left 340ms var(--ease-out);
+}
+
+.rowInnerWrap[data-published="true"] .rowLink:hover {
+  background: var(--bg-sunken);
+  padding-left: 10px;
+}
+
+.marker {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+}
+
+/* The vertical rail, drawn behind each marker. */
+.marker::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  bottom: -24px;
+  left: 50%;
+  width: 1px;
+  margin-left: -0.5px;
+  background: var(--rule);
+}
+
+.row:first-child .marker::before {
+  top: 12px;
+}
+
+.row:last-child .marker::before {
+  bottom: auto;
+  height: 12px;
+}
+
+.rowInnerWrap[data-published="true"] .marker::before {
+  background: color-mix(in srgb, var(--accent) 45%, var(--rule));
+}
+
+.markerDot {
+  position: relative;
+  z-index: 1;
+  width: 10px;
+  height: 10px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--rule-strong);
+  transition: transform 320ms var(--ease-out), background-color 260ms var(--ease),
+    border-color 260ms var(--ease), box-shadow 320ms var(--ease);
+}
+
+.rowInnerWrap[data-published="true"] .markerDot {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.rowInnerWrap[data-final="true"] .markerDot {
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.rowInnerWrap[data-published="true"] .rowLink:hover .markerDot {
+  transform: scale(1.35);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.rowInnerWrap[data-published="true"][data-final="true"] .rowLink:hover .markerDot {
+  transform: rotate(45deg) scale(1.35);
+}
+
+.rowIndex {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.rowInnerWrap[data-published="true"] .rowIndex {
+  color: var(--accent);
+}
+
+.rowMain {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.rowTitle {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.rowInnerWrap[data-published="false"] .rowTitle {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.rowDate {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.rowStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.rowInnerWrap[data-published="true"] .rowStatus {
+  color: var(--text-muted);
+}
+
+.rowStatus svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: opacity 260ms var(--ease), transform 320ms var(--ease-out);
+}
+
+.rowInnerWrap[data-published="true"] .rowLink:hover .rowStatus svg {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 760px) {
+  .rowLink {
+    grid-template-columns: 34px minmax(0, 1fr);
+    grid-template-areas:
+      "marker index"
+      "marker main"
+      "marker status";
+    gap: 6px 14px;
+    padding: 18px 0;
+  }
+
+  .marker {
+    grid-area: marker;
+  }
+
+  .rowIndex {
+    grid-area: index;
+  }
+
+  .rowMain {
+    grid-area: main;
+  }
+
+  .rowStatus {
+    grid-area: status;
+    margin-top: 6px;
+  }
+
+  .rowTitle {
+    font-size: 19px;
+  }
+}

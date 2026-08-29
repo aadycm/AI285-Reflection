@@ -1,0 +1,123 @@
+.nudge {
+  position: relative;
+  margin-block: 40px;
+  padding: 26px 30px 28px;
+  max-width: var(--measure);
+  background: var(--gold-soft);
+  border: 1px solid color-mix(in srgb, var(--gold-line) 45%, transparent);
+  border-left: 3px solid var(--gold-line);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.nudge[data-empty="true"] {
+  background: var(--bg-sunken);
+  border-color: var(--rule);
+  border-left-color: var(--rule-strong);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.nudge[data-empty="true"] .label {
+  color: var(--text-faint);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.tool {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: var(--text-faint);
+  max-width: 46%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.statement {
+  font-family: var(--font-serif);
+  font-size: 18.5px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.statement + .statement {
+  margin-top: 12px;
+}
+
+.chipStruck,
+.chipKept {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-right: 8px;
+  white-space: nowrap;
+  vertical-align: 0.14em;
+}
+
+.chipStruck {
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.chipKept {
+  background: color-mix(in srgb, var(--gold-line) 26%, transparent);
+  color: var(--gold);
+}
+
+.checked {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--gold-line) 30%, transparent);
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.checked span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--gold);
+}
+
+.pending {
+  font-size: 15.5px;
+  color: var(--text-muted);
+  max-width: 52ch;
+}
+
+@media (max-width: 600px) {
+  .nudge {
+    padding: 22px 20px 24px;
+  }
+
+  .statement {
+    font-size: 17.5px;
+  }
+}
