@@ -14,8 +14,29 @@ import WeekCard from "@/components/WeekCard";
 import PlaceholderNotice from "@/components/PlaceholderNotice";
 import styles from "./page.module.css";
 
+/**
+ * "a senior studying Computer Science at Penn State University", assembled from
+ * whichever of those fields are filled in. Returns "" if none are.
+ */
+function studentDescriptor(): string {
+  const year = isUnfilled(site.studentYear) ? "" : site.studentYear.trim();
+  const major = isUnfilled(site.studentProgram) ? "" : site.studentProgram.trim();
+  const school = isUnfilled(site.course.institution)
+    ? ""
+    : site.course.institution.trim();
+
+  let phrase = "";
+  if (year && major) phrase = `a ${year.toLowerCase()} studying ${major}`;
+  else if (year) phrase = `a ${year.toLowerCase()}`;
+  else if (major) phrase = `studying ${major}`;
+
+  if (school) phrase = phrase ? `${phrase} at ${school}` : `at ${school}`;
+  return phrase;
+}
+
 export default function HomePage() {
   const nameUnfilled = isUnfilled(site.studentName);
+  const descriptor = studentDescriptor();
   const quickLinks = reflections.slice(0, 8);
 
   return (
@@ -43,8 +64,8 @@ export default function HomePage() {
               <strong className={nameUnfilled ? styles.unfilled : undefined}>
                 {site.studentName}
               </strong>
-              {!isUnfilled(site.studentProgram) && `, ${site.studentProgram}`}.
-              This is my reflection journal for{" "}
+              {descriptor && `, ${descriptor}`}. This is my reflection journal
+              for{" "}
               <strong className={isUnfilled(site.course.title) ? styles.unfilled : undefined}>
                 {site.course.title}
               </strong>{" "}

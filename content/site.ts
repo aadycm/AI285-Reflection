@@ -12,21 +12,23 @@ export const site = {
   journalTitle: "Semester Reflections",
 
   /** Replace with your name. */
-  studentName: "[Your Name]",
+  studentName: "Aadithya Chandramouli",
 
-  /** Optional — a program, major, or year. Leave as "" to hide it. */
-  studentProgram: "[Your Major / Year]",
+  /** Your major. Leave as "" to hide it. */
+  studentProgram: "Computer Science",
+
+  /** Your year, e.g. "Senior". Leave as "" to hide it. */
+  studentYear: "Senior",
 
   /** Used for metadata and the footer. Leave as "" to hide it. */
   studentEmail: "",
 
   course: {
     code: "AI 285",
-    /** Replace with the official course title from your syllabus. */
-    title: "[Course Title]",
-    /** Replace with your instructor's name. */
-    instructor: "[Instructor Name]",
-    institution: "[University Name]",
+    /** The official course title from your syllabus. */
+    title: "Experiential Learning Skills",
+    instructor: "David Fusco",
+    institution: "Penn State University",
     term: "Fall 2026",
   },
 

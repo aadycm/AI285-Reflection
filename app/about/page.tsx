@@ -87,6 +87,7 @@ export default function AboutPage() {
             {[
               ["Author", site.studentName],
               ["Program", site.studentProgram],
+              ["Year", site.studentYear],
               ["Course", `${site.course.code} — ${site.course.title}`],
               ["Instructor", site.course.instructor],
               ["Institution", site.course.institution],

@@ -12,21 +12,18 @@ export const about: {
   whyThisFormat: Block[];
   responsibleAI: Block[];
 } = {
-  isPlaceholder: true,
+  isPlaceholder: false,
 
   intro: [
-    "[Introduce yourself in two or three sentences: your name, your program or year, and what you are studying.]",
-    "[What brought you to this course, and what you are hoping to get out of it.]",
+    "My name is Aadithya Chandramouli, and I am a senior at Penn State University majoring in Computer Science.",
+    "I wanted to take AI 285 because it aligns closely with my interests in AI and its real-world applications.",
   ],
 
   whyThisFormat: [
-    "[Why a website rather than a document: what does a public, cumulative, week-by-week format make possible that a private file would not?]",
-    "[What you want this to be by the end of the semester — a record, an argument, a portfolio piece, something you would actually reread.]",
+    "I chose a website over a document because, from what I know, building and maintaining a website keeps things more organized and quicker to get to than a document would.",
   ],
 
   responsibleAI: [
-    "[Where AI belongs in your process — and where you have decided it does not.]",
-    "[What you always do yourself, before any tool is involved.]",
-    "[How you check what a tool gives you, and why the verification note appears on every single entry here.]",
+    "I believe using AI for day-to-day work is going to help me a lot. When I am building something, I usually put in my own ideas and effort first, and from there I ask AI how I can refine what I have and make it more efficient.",
   ],
 };
