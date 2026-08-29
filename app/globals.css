@@ -142,6 +142,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   min-height: 100dvh;
+  overflow-wrap: break-word;
   transition: background-color 400ms var(--ease), color 400ms var(--ease);
 }
 
@@ -178,6 +179,9 @@ h4 {
   line-height: 1.15;
   letter-spacing: -0.018em;
   text-wrap: balance;
+  /* A long unbroken title (a URL, a compound term) must never push the page
+     sideways on a narrow screen. */
+  overflow-wrap: break-word;
 }
 
 p {
