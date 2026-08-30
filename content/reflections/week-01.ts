@@ -2,60 +2,57 @@ import type { Reflection } from "../types";
 
 /**
  * ─── WEEK 1 ──────────────────────────────────────────────────────────────────
- *  Replace the bracketed text with your own writing, then set
- *  `isPlaceholder: false`. Until you do, the site shows a visible notice that
- *  this page is scaffolding rather than your real reflection.
+ *  The three reflection sections below are PROMPTS, not writing. Answer them in
+ *  your own words, delete the brackets, then set `isPlaceholder: false`.
+ *
+ *  The AI documentation at the bottom is already filled in, because it is a
+ *  factual record of how this site was actually built. Check it reads true to
+ *  you and edit anything that doesn't.
  */
 const week1: Reflection = {
   week: 1,
-  title: "[Your Week 1 title]",
+  title: "Syllabus Week",
   dateRange: "August 24 – August 28",
   status: "published",
 
-  // ⬇︎ Change to false once the writing below is genuinely yours.
+  // ⬇︎ Change to false once the three sections below are your own writing.
   isPlaceholder: true,
 
   excerpt:
-    "[One or two sentences summarising your first week — this is what appears on the week card and in the archive.]",
+    "[Two sentences on what the first week actually was for you — what you walked in expecting, and what you walked out with.]",
 
-  tags: ["orientation", "setting up the journal"],
+  tags: ["syllabus week", "getting started"],
 
   keyLearningMoments: [
-    "[Who you are, in your own words: your name, your program, what brought you to this course, and what you were hoping for when you walked in.]",
-    "[What this journal is: describe what you intend to do here each week for the rest of the semester, and what you want it to be by Week 15.]",
-    "[Which concept, discussion, activity or reading from Week 1 actually stayed with you after class ended — and why that one rather than another.]",
+    "[What did Professor Fusco spend the most time on in the first class? Not the whole syllabus — the one part he slowed down for.]",
+    "[Experiential Learning Skills: what did you find out the course is actually about, compared to what you assumed when you registered for it?]",
+    "[Was there anything in the syllabus that surprised you, or that you weren't expecting from a course like this? The reflection journal requirement itself is fair game here.]",
   ],
 
   personalConnections: [
-    "[Why you chose this format: what made a website the right home for a semester of reflection, compared with a document or a notebook.]",
-    "[How Week 1's content connects to your own experiences, interests, goals or plans after graduation.]",
-    {
-      list: [
-        "[What you want to be able to do by the end of the semester]",
-        "[A question you are carrying into Week 2]",
-        "[Something you want to be less uncertain about by the midpoint]",
-      ],
-    },
+    "[You took this course because it lines up with your interest in AI and how it gets used in the real world. Did Week 1 confirm that, complicate it, or point somewhere you weren't expecting?]",
+    "[You're a CS senior — where does this course sit next to the rest of your final year and whatever comes after it?]",
+    "[What do you actually want out of the next fifteen weeks? Be specific enough that you could check in December whether you got it.]",
   ],
 
   challengesAndGrowth: [
-    "[What was hard about Week 1 — the material, the setup, the pace, the unfamiliarity — and what you actually did about it.]",
-    "[How you plan to use AI this semester: where you think it belongs in your process, and where you have decided it does not.]",
+    "[Syllabus week is usually easy, so the honest answer might not be about the material. Was the harder part setting this site up, working out what a 'reflection' is supposed to sound like, or being asked to write about yourself at all?]",
+    "[Whatever it was — what did you actually do about it?]",
   ],
 
   ai: {
-    tool: "[AI tool you used, e.g. Claude (Opus 5)]",
+    tool: "Claude (Opus 5), used inside Claude Code",
     purpose:
-      "[What you asked it to do — e.g. structure the journal, pressure-test an argument, tidy phrasing after the ideas were already yours.]",
+      "To build and deploy this journal itself — the site structure, the weekly content system, the timeline and progress tracking, and the mobile layout — rather than to write the reflections that go in it.",
     howItHelped:
-      "[How it improved this reflection specifically. Be concrete: what is better here because of it?]",
+      "It turned a semester's worth of scaffolding into something I only have to add one file to each week. The timeline, archive, progress bar and week-to-week navigation all update on their own when I publish a new entry, so the only thing left for me to do each week is the actual writing.",
     verification: {
       aiOriginallySaid:
-        "[What the AI originally suggested, wrote or claimed — quote or paraphrase it.]",
+        "set the course up as \"AI 285\" with a placeholder title and no instructor, and dated the semester as Fall 2026 with Week 1 running August 24–28 — dates it worked out from the calendar, not from my syllabus.",
       iChangedItTo:
-        "[What you replaced it with after checking.]",
+        "the real course title, Experiential Learning Skills, and my instructor's name, David Fusco. The week dates are still the ones it guessed, so I need to check them against the syllabus and correct them.",
       howIChecked:
-        "[How you verified — your class notes, the syllabus, the assigned reading, or your own memory of what actually happened.]",
+        "[Open the syllabus, confirm the actual Week 1 dates, and update this note to say what you found.]",
     },
   },
 };
