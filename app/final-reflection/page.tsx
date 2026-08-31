@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { finalReflection, hasContent, semesterProgress } from "@/content";
+import {
+  finalReflection,
+  hasContent,
+  metaWordCount,
+  semesterProgress,
+} from "@/content";
 import { site } from "@/content/site";
 import ReflectionBody from "@/components/ReflectionBody";
 import AIDocumentation from "@/components/AIDocumentation";
@@ -50,6 +55,7 @@ export default function FinalReflectionPage() {
                 <span className={styles.statusDot} aria-hidden="true" />
                 {published ? "Published" : "Written at the end of the semester"}
               </span>
+              {published && <span>{metaWordCount(finalReflection)} words</span>}
               <span>
                 {semesterProgress.published} of {semesterProgress.totalWeeks}{" "}
                 weeks published

@@ -102,18 +102,36 @@ export function hasContent(blocks: Block[]): boolean {
   return blocksToText(blocks).trim().length > 0;
 }
 
-/** Rough reading time in minutes, minimum 1. */
-export function readingTime(reflection: Reflection): number {
-  const words = [
-    ...reflection.keyLearningMoments,
-    ...reflection.personalConnections,
-    ...reflection.challengesAndGrowth,
-  ]
+/** Number of words across a set of sections. */
+export function countWords(...sections: Block[][]): number {
+  return sections
+    .flat()
     .map(blockToText)
     .join(" ")
     .split(/\s+/)
     .filter(Boolean).length;
-  return Math.max(1, Math.round(words / 200));
+}
+
+/**
+ * Words in the three reflection sections. The course sets a 300–500 word
+ * minimum per entry, so this is surfaced in the entry metadata.
+ */
+export function wordCount(reflection: Reflection): number {
+  return countWords(
+    reflection.keyLearningMoments,
+    reflection.personalConnections,
+    reflection.challengesAndGrowth,
+  );
+}
+
+/** Words across the meta-reflection's six sections. */
+export function metaWordCount(meta: MetaReflection): number {
+  return countWords(...meta.sections.map((s) => s.blocks));
+}
+
+/** Rough reading time in minutes, minimum 1. */
+export function readingTime(reflection: Reflection): number {
+  return Math.max(1, Math.round(wordCount(reflection) / 200));
 }
 
 /** Everything the site needs to render one timeline dot. */

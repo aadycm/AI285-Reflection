@@ -8,6 +8,7 @@ import {
   reflections,
   readingTime,
   slugFor,
+  wordCount,
 } from "@/content";
 import { site } from "@/content/site";
 import ReflectionBody from "@/components/ReflectionBody";
@@ -129,7 +130,12 @@ export default async function ReflectionPage({
                 <span className={styles.statusDot} aria-hidden="true" />
                 {published ? "Published" : "Upcoming"}
               </span>
-              {published && <span>{readingTime(reflection)} min read</span>}
+              {published && (
+                <>
+                  <span>{wordCount(reflection)} words</span>
+                  <span>{readingTime(reflection)} min read</span>
+                </>
+              )}
               {reflection.tags?.map((tag) => (
                 <span key={tag} className={styles.tag}>
                   {tag}
