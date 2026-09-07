@@ -1,45 +1,33 @@
 import type { Reflection } from "../types";
 
-/**
- * ─── WEEK 2 ──────────────────────────────────────────────────────────────────
- *  Drafted from the notes you gave me about this week: settling back in,
- *  keeping up with assignments, and the long-weekend trip to Pittsburgh.
- *
- *  The [bracketed] gaps are the ones I can't fill for you. The first one in
- *  Key Learning Moments matters most — right now this entry has your week in it
- *  but nothing from the course, and "connection to course material" is the
- *  largest single thing the reflection is graded on.
- *
- *  Fill the gaps, delete the brackets, then set `isPlaceholder: false`.
- */
+/** ─── WEEK 2 ─────────────────────────────────────────────────────────────── */
 const week2: Reflection = {
   week: 2,
-  title: "Settling Back In",
+  title: "Building My First Agent",
   dateRange: "August 31 – September 4",
   status: "published",
-
-  // ⬇︎ Change to false once the bracketed gaps below are filled in.
-  isPlaceholder: true,
+  isPlaceholder: false,
 
   excerpt:
-    "A quieter week. Mostly getting settled back in and trying to stay on top of assignments, and then a long weekend where I went to Pittsburgh and got back today.",
+    "We covered AI workflow tools like n8n and Zapier this week, and Fusco showed us the backend of what the AI is actually doing in them. I went and tried building an agent myself afterwards, which was the best thing I got out of the week.",
 
-  tags: ["settling in", "long weekend"],
+  tags: ["ai workflows", "n8n", "agents"],
 
   keyLearningMoments: [
-    "This week went well. It was less about one big idea and more about actually settling back into the semester. Week 1 is mostly setup — working out what each course wants and getting everything in place — and this was the week where all of that turned into real work I had to keep track of.",
-    "[What actually came up in class this week? A concept, a discussion, or an activity — even one specific thing Fusco said or had you do is enough. Two or three sentences. This is the part the reflection is graded most heavily on, so it is worth going back to your notes for.]",
+    "This week we went through AI workflows and the tools people build them with, mainly n8n and Zapier AI. What made it land was that Fusco did not just show us the front end of it — he showed the backend as well, so we could see what the AI is actually doing at each step instead of treating the whole thing as a black box.",
+    "I went and looked at it properly on my own after class and tried building an agent myself in n8n. Actually putting one together is a different thing from watching someone else do it, and a lot of what he had shown made more sense once I was the one wiring the steps together.",
+    "The Gen AI content this week was genuinely impressive. Seeing what these tools can automate once they are chained together properly is different from knowing about them in the abstract.",
   ],
 
   personalConnections: [
-    "It was a long weekend, so I went to Pittsburgh for a couple of days. I visited a few places while I was there, did some shopping, and got back today. Getting away from campus for a bit before the semester properly picks up was a good way to spend the break.",
-    "[Which places did you actually go to in Pittsburgh, and was there anything that stood out? A line or two of specifics will make this read like your week rather than anyone's weekend.]",
-    "[Then tie it back to the course: is there anything from this week's material that connects to how you spent the week, or to what you want out of the semester? Even a loose connection is fine — the assignment asks for the link, not a perfect one.]",
+    "This is the part of AI I signed up for. I said in Week 1 that I am interested in AI as something you actually use rather than something you read about, and building a working agent in n8n is about as direct an example of that as I could ask for. It is the first thing this semester that I would want to keep building on outside of class.",
+    "It was a long weekend, so I went to Pittsburgh for a couple of days. I visited some temples while I was there and went to a Mexican restaurant, did some shopping, and got back today.",
+    "Agent use is the thing I would point to if someone asked what I learned this week. Automated workflows are the kind of skill that carries past the course, and as a CS senior that matters more to me than something I would only use for an assignment.",
   ],
 
   challengesAndGrowth: [
-    "The main thing this week was just keeping up. Assignments from a few different courses started landing around the same time, and I was trying to stay on top of all of them while also being away for part of the weekend. None of it was difficult on its own, it was more that there was a lot of it at once and it needed managing rather than solving.",
-    "[How did you actually handle it? Whatever you did — getting the small things out of the way first, working around the trip, or just accepting you would catch up after — say it plainly. The assignment asks how you worked through it, not only what was hard.]",
+    "The main difficulty is that I am still catching up. I missed the first week, so there are a few things I did not get the first time round, and this week I was working through those while also keeping up with assignments landing across my other courses.",
+    "I have not fully caught up yet, and I would rather say that than pretend otherwise. What I have been doing is working through the missed material as I go rather than trying to clear all of it at once, and building the n8n agent actually helped with that — going and doing the thing on my own filled in gaps that I would not have closed just by reading back over notes.",
   ],
 
   ai: {
@@ -47,12 +35,14 @@ const week2: Reflection = {
     purpose:
       "To turn my rough notes about this week into a full entry, and to keep the structure consistent with Week 1 so the journal reads the same way from week to week.",
     howItHelped:
-      "I gave it a few lines about how the week went, the assignments piling up, and the trip to Pittsburgh, and it worked those into proper paragraphs instead of me starting from a blank page. It also flagged that I had written plenty about my week and almost nothing about the course, which is the part I would have missed on my own.",
+      "I gave it a few lines about the workflow tools we covered, the agent I built afterwards, and the trip to Pittsburgh, and it worked those into proper paragraphs instead of me starting from a blank page. It also pointed out that my first set of notes was almost entirely about my weekend and had nothing from the course in it, which is the part I would have missed on my own.",
     verification: {
       aiOriginallySaid:
-        "[Fill this in as you edit. Anything you rewrite in the draft above counts — a sentence that did not sound like you, a detail it got slightly off, or a framing of the week you disagreed with.]",
-      iChangedItTo: "[What you replaced it with.]",
-      howIChecked: "[How you knew — your own memory of the week, your notes, or the syllabus.]",
+        "framed this week as settling back in, with a line about the trip being a good reset before the semester properly picks up, and titled the entry \"Settling Back In\".",
+      iChangedItTo:
+        "an entry about the n8n agent, and an honest note that I am still catching up rather than settled. It had written the week as more under control than it actually was.",
+      howIChecked:
+        "My own week. I missed the first week of class and I am still working through what I did not get, so describing it as settled would not have been true.",
     },
   },
 };
