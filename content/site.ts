@@ -36,11 +36,10 @@ export const site = {
   totalWeeks: 15,
 
   /**
-   * Set this once your site is live on Vercel, e.g.
-   * "https://ai285-reflection.vercel.app". It is only used for SEO metadata
-   * and the sitemap — the site works fine without it.
+   * The live site. Used for canonical URLs, the sitemap and social previews,
+   * so it has to match the deployed domain exactly.
    */
-  siteUrl: "https://ai285-reflection.vercel.app",
+  siteUrl: "https://ai-285-reflection.vercel.app",
 
   /** One or two sentences for the home page and search engines. */
   tagline:
