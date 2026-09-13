@@ -25,23 +25,23 @@ const week3: Reflection = {
   ],
 
   challengesAndGrowth: [
-    "The busy part of this week was grad school applications. They took up a lot of my time, which is a big reason I didn't get to try the class material outside of class.",
+    "The busy part of this week was grad school applications. They took up most of my free time, so I didn't really get a chance to try the class material outside of class. It's a bit of a trade-off right now, but applications have deadlines and the course material will still be there to try once those are done.",
     "The good news is that I've caught up on everything I missed in Week 1. In Weeks 1 and 2 I kept saying I was still catching up, so it feels good to finally be past that. Things are getting more into a flow now, and I'm keeping up with the course week to week instead of working through old material.",
   ],
 
   ai: {
-    tool: "Claude (Opus 5) in Claude Code, plus AI tools for designing homework",
+    tool: "Claude, used in Claude Code for this journal and for designing homework",
     purpose:
-      "Two things this week. I used Claude to turn my notes into this entry, as in earlier weeks. Outside the journal, I used AI to help design a homework assignment for an AI class where I'm an LA.",
+      "Two things this week. I used Claude to turn my notes into this entry, as in earlier weeks. Outside the journal, I also used Claude to help design a homework assignment for an AI class where I'm an LA.",
     howItHelped:
       "For the journal, it turned short answers into full paragraphs and kept the structure consistent with the other weeks. For the homework, it gave me a starting point to work from, which should make for an interesting assignment.",
     verification: {
       aiOriginallySaid:
-        "can handle a lot, but it sometimes gets the more cognitive, reasoning-heavy answers wrong. That's something I've noticed while using it.",
+        "gave me a homework draft for the AI class I'm an LA for, but it missed proofreading it, so the draft wasn't ready to use as it was.",
       iChangedItTo:
-        "not taking those kinds of answers at face value. AI is useful for a lot, but the reasoning-heavy parts are where I can't just trust what it gives me.",
+        "a version I proofread myself before using it. It also reminded me that AI can get some of the more reasoning-heavy answers wrong, so I don't take that kind of output at face value.",
       howIChecked:
-        "From my own experience using it. Those are the answers I've seen it get wrong, so they're the ones I go back over myself.",
+        "I read through the whole homework myself instead of trusting the draft. Since students will actually be working on it, it had to be right.",
     },
   },
 };
