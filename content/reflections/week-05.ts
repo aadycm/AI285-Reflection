@@ -25,21 +25,22 @@ const week5: Reflection = {
   ],
 
   challengesAndGrowth: [
-    "The hard part was listening more than I talked and not defending the concept when someone pushed back on it. My instinct when the experienced grower said a small indoor unit might not produce enough was to explain why he was wrong. Sitting with it instead is where the useful feedback came from, and it was harder than I expected.",
+    "It was a tight week. My second midterm was this week as well, and it went well, but fitting three interviews around studying for it meant there wasn't much slack anywhere. Getting the interviews done at all took more scheduling than I expected, since I needed my outside contact as well as my housemates.",
+    "The hard part of the interviews themselves was listening more than I talked and not defending the concept when someone pushed back on it. My instinct when the experienced grower said a small indoor unit might not produce enough was to explain why he was wrong. Sitting with it instead is where the useful feedback came from, and it was harder than I expected.",
     "I also only got vague answers on the specifics that matter most: how much yield and what price point would make it feel worth it, and how much cleaning people will actually tolerate before they give up. If I did more interviews I would push on those directly, and I would try to reach a couple of people who don't really cook, to see whether framing it around herbs you actually cook with leaves them out.",
   ],
 
   ai: {
-    tool: "Claude (Opus 5) in Claude Code for writing this reflection. The thing being checked this week was the set of AI-generated personas I built for Week 3.",
+    tool: "Claude — used in Week 3 to generate the personas I tested this week, and again in Claude Code to write this reflection.",
     purpose:
-      "I used Claude to turn my interview notes and my Week 5 assignment into this reflection. The more important AI use this week was the Week 3 personas, which I deliberately tested against real interviews as part of the assignment.",
+      "I used Claude to turn my interview notes and my Week 5 assignment into this reflection. The more important AI use was the personas I generated with Claude in Week 3, which I deliberately tested against real interviews as part of this week's assignment.",
     howItHelped:
       "The personas were genuinely useful as a starting point for structuring my questions and thinking about who my users are. What they were not useful for was telling me where the idea was weak, and the only way I found that out was by putting them next to three real conversations.",
     verification: {
       aiOriginallySaid:
-        "through the Week 3 personas, that convenience was the hook, that cost was a minor concern, and that the main barrier to adoption would be people's fear of the technology.",
+        "through the personas I generated with it in Week 3, that convenience was the hook, that cost was a minor concern, and that the main barrier to adoption would be people's fear of the technology.",
       iChangedItTo:
-        "a value proposition built on what real people actually said. Convenience held up as the hook, but the personas had badly under-weighted ongoing cost and yield, and nobody mentioned fear of the technology at all. Replacement parts, electricity, cleaning and whether it grows enough came up immediately and repeatedly, so I rewrote the pitch around effort and usable harvest instead.",
+        "a value proposition built on what real people actually said. Convenience held up as the hook, but Claude's personas had badly under-weighted ongoing cost and yield, and nobody mentioned fear of the technology at all. Replacement parts, electricity, cleaning and whether it grows enough came up immediately and repeatedly, so I rewrote the pitch around effort and usable harvest instead.",
       howIChecked:
         "Three real interviews, including an outside contact with years of growing experience who was not in my friend group. All three raised yield or ongoing cost in their own words, and the experienced grower raised it hardest, which is the opposite of what the personas predicted.",
     },
