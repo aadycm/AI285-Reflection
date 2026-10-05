@@ -16,7 +16,7 @@ const week6: Reflection = {
   keyLearningMoments: [
     "We covered prototyping and storyboards this week. The timing worked out well, because it comes straight after Week 5, where I spent the whole week finding out what people actually want from Hydro Node. Storyboarding is about laying out the experience step by step, and prototyping is about building something rough enough to put in front of someone instead of describing it to them. Both are the natural next thing to do once you have interview findings sitting in front of you.",
     "The part that stuck with me is that a prototype does not have to be the real thing. The point is to make something concrete enough that people can react to it, which is a different goal from building it properly. That is a different mindset from how I normally approach building something, where I want it to actually work before I show anyone.",
-    "I spent a good amount of time on Hydro Node this week as well, which is the project I would be storyboarding and prototyping for.",
+    "I spent a good amount of time on Hydro Node this week as well, using both Claude and ChatGPT on it. I also tried ChatGPT's Codex for the first time and it was really cool. It does a lot of the work for me now and loops on the bugs itself instead of me taking each one back to it, which is a noticeable step up from pasting code back and forth.",
   ],
 
   personalConnections: [
@@ -26,22 +26,23 @@ const week6: Reflection = {
 
   challengesAndGrowth: [
     "This was a tight week. I had quizzes, assignments and research work all landing at the same time, and I was trying to make progress on Hydro Node on top of that. Nothing was especially hard on its own, it was the amount of it at once that made it difficult.",
+    "The one that actually cost me time was a sensor on Hydro Node getting stuck, so the data wasn't reading properly. That was a pain to track down, because the system keeps running and the readings keep coming through — they're just wrong. A bug that stops things is easy to spot. A bug that quietly gives you bad data is the kind you only catch because you go looking.",
     "What I am learning from weeks like this is that I have to be realistic about what actually fits. The research is the priority for me right now, so the honest answer is that other things got the time that was left over rather than the time I would have liked to give them.",
   ],
 
   ai: {
-    tool: "Claude (Opus 5) in Claude Code for writing this reflection, and AI assistance for code on Hydro Node.",
+    tool: "Claude and ChatGPT for Hydro Node, including ChatGPT's Codex for the first time this week, and Claude (Opus 5) in Claude Code for writing this reflection.",
     purpose:
-      "I used AI to help write code for Hydro Node, and Claude to turn my notes about the week into this reflection.",
+      "I used Claude and ChatGPT to help write code for Hydro Node, tried Codex for the coding work, and used Claude to turn my notes about the week into this reflection.",
     howItHelped:
-      "For Hydro Node it gave me code to start from rather than writing everything myself, which is useful in a week this busy. For the journal, Claude turned short notes into the weekly sections.",
+      "Codex was the useful one this week. It handles a lot of the work now and loops on bugs itself rather than me carrying each error back to it, which saved real time in a week this full. For the journal, Claude turned short notes into the weekly sections.",
     verification: {
       aiOriginallySaid:
-        "gave me code for Hydro Node that looked right but had bugs in it. It did not work properly when I actually ran it, and parts of it malfunctioned.",
+        "gave me code for Hydro Node that looked right but had bugs in it, and did not work properly when I actually ran it.",
       iChangedItTo:
-        "a working version after I debugged it myself. I had to go through the code and fix the parts that were broken rather than assuming what it gave me was ready to use.",
+        "a working version after debugging it myself. The one that took longest was a stuck sensor, where the data wasn't reading properly but the readings still looked like readings. Nothing in the AI's output was going to tell me that — the code ran fine, the numbers were just wrong.",
       howIChecked:
-        "I ran it. That is the whole point with code — it either works or it does not, and this did not until I went through and fixed it.",
+        "I ran it and then checked the data against what the sensor should actually have been reporting. Running it is enough to catch code that breaks. Checking the output against reality is the only way to catch code that runs and still gives you the wrong answer.",
     },
   },
 };
