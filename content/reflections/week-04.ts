@@ -2,19 +2,19 @@ import type { Reflection } from "../types";
 
 const week4: Reflection = {
   week: 4,
-  title: "Building for HydroNode",
+  title: "Building for Hydro Node",
   dateRange: "September 14 – September 18",
   status: "published",
   isPlaceholder: false,
-  excerpt: "I enjoyed building a dedicated assistant for HydroNode using ChatGPT's GPTs. Testing its instructions gave me something to work on, while I was also preparing for my next midterm in Week 5.",
-  tags: ["custom GPTs", "HydroNode", "agent reliability"],
+  excerpt: "I enjoyed building a dedicated assistant for Hydro Node using ChatGPT's GPTs. Testing its instructions gave me something to work on, while I was also preparing for my next midterm in Week 5.",
+  tags: ["custom GPTs", "Hydro Node", "agent reliability"],
   keyLearningMoments: [
-    "This week's class work was on custom GPTs, so I used it on my own project, HydroNode. HydroNode is a dashboard I'm building to keep track of hydroponics and other systems. I used ChatGPT's GPTs to set up an assistant dedicated to the project. Since it's something I'm already working on, I was interested in it, and having a real project to build around made this feel more personal than just trying a tool for an assignment.",
+    "This week's class work was on custom GPTs, so I used it on my own project, Hydro Node. Hydro Node is a dashboard I'm building to keep track of hydroponics and other systems. I used ChatGPT's GPTs to set up an assistant dedicated to the project. Since it's something I'm already working on, I was interested in it, and having a real project to build around made this feel more personal than just trying a tool for an assignment.",
     "The instructions were not perfect at first. I was able to inject some prompts that made the assistant behave differently from what I intended. I went back and fixed the instructions later. That was a useful part of the process because it showed me that getting an assistant set up is not the same as getting it to follow the instructions the way I want.",
     "In Week 3 I didn't get much time to try things outside class, so it was good to get back to building something this week.",
   ],
   personalConnections: [
-    "I have mentioned before that I am interested in AI research and potentially doing a master's in AI or a related field. Working on the HydroNode assistant connects with that because it brings AI into a project I'm building myself. An assistant that knows the dashboard could help answer questions about the systems it tracks, instead of me digging through the data by hand.",
+    "I have mentioned before that I am interested in AI research and potentially doing a master's in AI or a related field. Working on the Hydro Node assistant connects with that because it brings AI into a project I'm building myself. An assistant that knows the dashboard could help answer questions about the systems it tracks, instead of me digging through the data by hand.",
     "It also connects to my interest in agent reliability. Seeing the assistant behave differently after those prompts gave me a concrete example to think about. As I continue working on it, I want to pay attention to whether its responses stay useful for the project. Building it is one part, but checking what it gives back is another part I want to spend time on.",
   ],
   challengesAndGrowth: [
@@ -22,13 +22,13 @@ const week4: Reflection = {
     "With the assistant, the challenge was getting the instructions right. I had to revise them after seeing how the prompts affected its behavior. For me, that connects directly to why checking AI output matters instead of assuming the first version is ready.",
   ],
   ai: {
-    tool: "ChatGPT's GPTs for the HydroNode assistant; ChatGPT/Codex and Claude for drafting and revising this reflection",
-    purpose: "I used ChatGPT's GPTs to create an assistant dedicated to my HydroNode project. I also used ChatGPT/Codex to organize my notes into this reflection, and Claude to revise it afterwards.",
+    tool: "ChatGPT's GPTs for the Hydro Node assistant; ChatGPT/Codex and Claude for drafting and revising this reflection",
+    purpose: "I used ChatGPT's GPTs to create an assistant dedicated to my Hydro Node project. I also used ChatGPT/Codex to organize my notes into this reflection, and Claude to revise it afterwards.",
     howItHelped: "GPTs helped me build my own dedicated assistant, which closely connects to the work I do. For the journal, AI helped turn my short notes into the weekly sections and document the issue I found with the assistant's instructions.",
     verification: {
-      aiOriginallySaid: "responded differently from what I intended when I tried injecting prompts into my HydroNode assistant. Its initial instructions were not strong enough for those prompts.",
+      aiOriginallySaid: "responded differently from what I intended when I tried injecting prompts into my Hydro Node assistant. Its initial instructions were not strong enough for those prompts.",
       iChangedItTo: "a revised set of instructions to fix the behavior I noticed. This was a correction to the assistant's setup, rather than just accepting its initial responses.",
-      howIChecked: "I tried prompts myself and compared the assistant's behavior with what I wanted it to do for HydroNode. That is how I noticed the issue and knew the instructions needed changing.",
+      howIChecked: "I tried prompts myself and compared the assistant's behavior with what I wanted it to do for Hydro Node. That is how I noticed the issue and knew the instructions needed changing.",
     },
   },
 };
